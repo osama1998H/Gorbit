@@ -3,6 +3,7 @@ package config
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/spf13/viper"
 )
@@ -15,20 +16,23 @@ type Config struct {
 	} `mapstructure:"server"`
 
 	App struct {
-		Name    string `mapstructure:"name"`
-		Version string `mapstructure:"version"`
-		Env     string `yaml:"env"`
-		APIKey  string `mapstructure:"api_key"`
+		Name      string `mapstructure:"name"`
+		Version   string `mapstructure:"version"`
+		Env       string `yaml:"env"`
+		APIKey    string `mapstructure:"api_key"`
 		JWTSecret string `mapstructure:"jwt_secret"`
 	} `mapstructure:"app"`
 
 	Databases struct {
 		MySQL struct {
-			Host     string `mapstructure:"host"`
-			Port     int    `mapstructure:"port"`
-			Username string `mapstructure:"username"`
-			Password string `mapstructure:"password"`
-			Database string `mapstructure:"database"`
+			Host            string        `mapstructure:"host"`
+			Port            int           `mapstructure:"port"`
+			Username        string        `mapstructure:"username"`
+			Password        string        `mapstructure:"password"`
+			Database        string        `mapstructure:"database"`
+			MaxOpenConns    int           `mapstructure:"max_open_conns"`
+			MaxIdleConns    int           `mapstructure:"max_idle_conns"`
+			ConnMaxLifetime time.Duration `mapstructure:"conn_max_lifetime"`
 		} `mapstructure:"mysql"`
 
 		Postgres struct {
@@ -40,12 +44,12 @@ type Config struct {
 		} `mapstructure:"postgres"`
 
 		MongoDB struct {
-			Host     string `mapstructure:"host"`
-			Port     int    `mapstructure:"port"`
-			Username string `mapstructure:"username"`
-			Password string `mapstructure:"password"`
-			Database string `mapstructure:"database"`
-			AuthSource string `mapstructure:"auth_source"`
+			Host          string `mapstructure:"host"`
+			Port          int    `mapstructure:"port"`
+			Username      string `mapstructure:"username"`
+			Password      string `mapstructure:"password"`
+			Database      string `mapstructure:"database"`
+			AuthSource    string `mapstructure:"auth_source"`
 			AuthMechanism string `mapstructure:"auth_mechanism"`
 		} `mapstructure:"mongodb"`
 	} `mapstructure:"databases"`
@@ -61,7 +65,7 @@ type Config struct {
 func LoadConfig() (*Config, error) {
 	// Set the configuration file name and path
 	configPath := "configs"
-	
+
 	// Initialize Viper
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")

@@ -7,7 +7,7 @@ server:
 
 
 app:
-  name: "My App"
+  name: "Gorbit"
   version: "1.0.0"
   env: "development"
   jwt_secret: "your-256-bit-secret"
