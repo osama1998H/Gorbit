@@ -11,6 +11,7 @@ func RegisterRoutes(router fiber.Router, healthHandler *handlers.HealthHandler) 
 	// router.Get("/health", healthHandler.HealthCheck)
 	v1Group := router.Group("/v1")
 	v1Group.Get("/health", healthHandler.HealthCheck)
+	v1Group.Get("/random", handlers.GetRandomNumber)
 
 	// Add other routes here
 	// router.Get("/users", handlers.GetUsers)
