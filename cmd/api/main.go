@@ -1,3 +1,9 @@
+// @title Gorbit API
+// @version 1.0
+// @description API documentation for Gorbit
+// @host localhost:8080
+// @BasePath /api/v1
+// @schemes http
 package main
 
 import (

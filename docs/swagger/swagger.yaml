@@ -1,0 +1,11 @@
+basePath: /api/v1
+host: localhost:8080
+info:
+  contact: {}
+  description: API documentation for Gorbit
+  title: Gorbit API
+  version: "1.0"
+paths: {}
+schemes:
+- http
+swagger: "2.0"

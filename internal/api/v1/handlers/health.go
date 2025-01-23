@@ -1,3 +1,9 @@
+// @Summary Health check
+// @Description Get service health status
+// @Tags system
+// @Produce json
+// @Success 200 {object} HealthResponse
+// @Router /api/v1/health [get]
 // internal/api/v1/handlers/health.go
 package handlers
 

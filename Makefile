@@ -46,6 +46,6 @@ swagger: ## Generate Swagger documentation
 		--output $(SWAGGER_DIR) \
 		--outputTypes json,yaml \
 		--parseDependency \
-		--dir ./internal/api/v1
+		--dir ./ \
+		--exclude internal/database
 	@echo "Swagger docs generated at $(SWAGGER_DIR)"
-	@echo "Version: $(SWAGGER_VERSION)"
