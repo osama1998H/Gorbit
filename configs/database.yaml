@@ -1,0 +1,29 @@
+# configs/database.yaml
+databases:
+  mysql:
+    host: mysql-db
+    port: 3306
+    username: root
+    password: root
+    database: myapp
+    conn_max_lifetime: 300s
+    max_open_conns: 25
+    max_idle_conns: 5
+
+  postgres:
+    host: postgres-db
+    port: 5432
+    username: postgres
+    password: postgres
+    database: myapp
+    sslmode: disable
+    timezone: UTC
+
+  mongodb:
+    host: mongodb
+    port: 27017
+    username: root
+    password: root
+    database: admin
+    auth_source: admin
+    auth_mechanism: SCRAM-SHA-256
